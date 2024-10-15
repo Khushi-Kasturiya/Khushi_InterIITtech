@@ -20,12 +20,13 @@ const ItemsList = ({ items, onSelectItem, onSelectItemID }) => (
 const TreeNode = ({ node, onToggleNode, onViewItems, expandedNodes, items, onSelectItem, onSelectItemID }) => (
     <>
         <div className="node-header">
-            <span onClick={() => onToggleNode(node._id)} className="node-name">
+            <span onClick={() => { onToggleNode(node._id); onViewItems(node._id); }} className="node-name">
                 {node.name}
             </span>
-            <button onClick={() => onViewItems(node._id)} className="view-button">
-                View Items
-            </button>
+            <span 
+                onClick={() => { onToggleNode(node._id); onViewItems(node._id); }}
+                className={`arrow ${expandedNodes[node._id] ? 'arrow-down' : 'arrow-right'}`}
+            />
         </div>
         {expandedNodes[node._id] && (
             <LocationBranch 
@@ -41,6 +42,7 @@ const TreeNode = ({ node, onToggleNode, onViewItems, expandedNodes, items, onSel
         {items[node._id] && <ItemsList items={items[node._id]} onSelectItem={onSelectItem} onSelectItemID={onSelectItemID} />}
     </>
 );
+
 
 const LocationBranch = ({ parentId, onToggleNode, onViewItems, expandedNodes, items, onSelectItem, onSelectItemID }) => {
     const [locations, setLocations] = useState([]);

@@ -1,11 +1,10 @@
 .item-image {
-    width: 100%; /* Take full width of its parent container */
-    max-width: 200px; /* Maximum width to maintain a consistent look */
+    width: 60%; /* Take full width of its parent container */
     height: auto; /* Height will adjust to maintain aspect ratio */
     object-fit: cover; /* Ensure the image covers the container */
     border-radius: 8px;
     margin-bottom: 10px;
-    margin-top: 20px;
+    margin-top: 10px;
     background-color: #f0f0f0; /* Ensures a consistent background if the image does not fill */
 }
 
@@ -14,10 +13,44 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 20px;
+    margin:50px;
     background-color: #c2d0df;
     border-radius: 6px;
     padding: 15px;
     width: -webkit-fill-available;
 }
 
+.detail-container h2 {
+    font-size: 2rem;
+    color: #333;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.welcome-conatiner{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    border-radius: 6px;
+    padding: 15px;
+}
+
+.welcome-note {
+    text-align: center;
+    margin: 25px 0px;
+    font-size: 3.5rem;
+    color: #333;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.selection-note {
+    text-align: center;
+    margin: 25px 0px;
+    font-size: 1.5rem;
+    color: #333;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
