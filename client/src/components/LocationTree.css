@@ -1,0 +1,124 @@
+.location-tree {
+    color: white;
+    font-family: 'Arial', sans-serif;
+}
+
+h3 {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #2c3d50;
+}
+
+ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+.tree-root, .tree-node {
+    margin: 10px 0;
+}
+
+.tree-root {
+    list-style-type: none;
+}
+
+.node-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    padding: 10px;
+    background-color: #34495e;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.node-header:hover {
+    background-color: #1abc9c;
+}
+
+.node-name {
+    flex: 1;
+    padding: 5px;
+    font-weight: bold;
+}
+
+.view-button {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 3px;
+    transition: background-color 0.3s ease;
+}
+
+.view-button:hover {
+    background-color: #c0392b;
+}
+
+.tree-branch {
+    list-style-type: none;
+    padding-left: 15px;
+    transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    max-height: 500px;
+    overflow: hidden;
+}
+
+.tree-branch.expanded {
+    max-height: 1000px;
+    opacity: 1;
+}
+
+.location-tree {
+    padding: 10px;
+    background-color: #f5f5f5;
+    border-radius: 8px;
+    width: 300px;
+    height: 100vh;
+    overflow-y: auto;
+}
+
+.node-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+    cursor: pointer;
+    background-color: #2c3d50;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 5px;
+}
+
+.node-name {
+    font-weight: bold;
+}
+
+.view-button {
+    padding: 3px 8px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.view-button:hover {
+    background-color: #0056b3;
+}
+
+.item-details {
+    padding: 10px;
+    background-color: #f5f5f5;
+    border-radius: 8px;
+    margin-top: 10px;
+    color: #2c3d50;
+    cursor: pointer;
+}
+
+
+

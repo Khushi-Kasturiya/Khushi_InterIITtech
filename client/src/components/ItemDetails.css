@@ -1,0 +1,23 @@
+.item-image {
+    width: 100%; /* Take full width of its parent container */
+    max-width: 200px; /* Maximum width to maintain a consistent look */
+    height: auto; /* Height will adjust to maintain aspect ratio */
+    object-fit: cover; /* Ensure the image covers the container */
+    border-radius: 8px;
+    margin-bottom: 10px;
+    margin-top: 20px;
+    background-color: #f0f0f0; /* Ensures a consistent background if the image does not fill */
+}
+
+.detail-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    background-color: #c2d0df;
+    border-radius: 6px;
+    padding: 15px;
+    width: -webkit-fill-available;
+}
+
