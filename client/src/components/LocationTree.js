@@ -7,7 +7,6 @@ const ItemsList = ({ items, onSelectItem, onSelectItemID }) => (
         {items.map(item => (
             <li key={item._id} className="item">
                 <div className="item-details">
-                    {/* <img src={item.image_url} alt={item.name} className="item-image" onClick={() => onSelectItem(item._id)} /> */}
                     <div>
                         <u><strong onClick={() => {onSelectItem(items); onSelectItemID(item._id)}}>{item.name}</strong><br /></u>
                     </div>
@@ -17,32 +16,37 @@ const ItemsList = ({ items, onSelectItem, onSelectItemID }) => (
     </ul>
 );
 
-const TreeNode = ({ node, onToggleNode, onViewItems, expandedNodes, items, onSelectItem, onSelectItemID }) => (
-    <>
-        <div className="node-header">
-            <span onClick={() => { onToggleNode(node._id); onViewItems(node._id); }} className="node-name">
-                {node.name}
-            </span>
-            <span 
-                onClick={() => { onToggleNode(node._id); onViewItems(node._id); }}
-                className={`arrow ${expandedNodes[node._id] ? 'arrow-down' : 'arrow-right'}`}
-            />
-        </div>
-        {expandedNodes[node._id] && (
-            <LocationBranch 
-                parentId={node._id} 
-                onToggleNode={onToggleNode} 
-                onViewItems={onViewItems} 
-                expandedNodes={expandedNodes} 
-                items={items} 
-                onSelectItem={onSelectItem}
-                onSelectItemID={onSelectItemID}
-            />
-        )}
-        {items[node._id] && <ItemsList items={items[node._id]} onSelectItem={onSelectItem} onSelectItemID={onSelectItemID} />}
-    </>
-);
+const TreeNode = ({ node, onToggleNode, onViewItems, expandedNodes, items, onSelectItem, onSelectItemID }) => {
+    const handleClick = () => {
+        onToggleNode(node._id);
+        if (!expandedNodes[node._id]) {
+            onViewItems(node._id);
+        }
+    };
 
+    return (
+        <>
+            <div className="node-header" onClick={handleClick}>
+                <span className="node-name">{node.name}</span>
+                <span className={`arrow ${expandedNodes[node._id] ? 'arrow-down' : 'arrow-right'}`} />
+            </div>
+            {expandedNodes[node._id] && (
+                <>
+                    <LocationBranch 
+                        parentId={node._id} 
+                        onToggleNode={onToggleNode} 
+                        onViewItems={onViewItems} 
+                        expandedNodes={expandedNodes} 
+                        items={items} 
+                        onSelectItem={onSelectItem}
+                        onSelectItemID={onSelectItemID}
+                    />
+                    {items[node._id] && <ItemsList items={items[node._id]} onSelectItem={onSelectItem} onSelectItemID={onSelectItemID} />}
+                </>
+            )}
+        </>
+    );
+};
 
 const LocationBranch = ({ parentId, onToggleNode, onViewItems, expandedNodes, items, onSelectItem, onSelectItemID }) => {
     const [locations, setLocations] = useState([]);
@@ -66,7 +70,7 @@ const LocationBranch = ({ parentId, onToggleNode, onViewItems, expandedNodes, it
                         onViewItems={onViewItems} 
                         expandedNodes={expandedNodes} 
                         items={items} 
-                        onSelectItem={onSelectItem} 
+                        onSelectItem={onSelectItem}
                         onSelectItemID={onSelectItemID}
                     />
                 </li>
@@ -112,11 +116,11 @@ const LocationTree = ({ onSelectItem, onSelectItemID }) => {
             {rootLocations.map(rootLocation => (
                 <ul key={rootLocation._id}>
                     <TreeNode 
-                        node={rootLocation} 
-                        onToggleNode={toggleNode} 
-                        onViewItems={handleViewItems} 
-                        expandedNodes={expandedNodes} 
-                        items={items} 
+                        node={rootLocation}
+                        onToggleNode={toggleNode}
+                        onViewItems={handleViewItems}
+                        expandedNodes={expandedNodes}
+                        items={items}
                         onSelectItem={onSelectItem}
                         onSelectItemID={onSelectItemID}
                     />
